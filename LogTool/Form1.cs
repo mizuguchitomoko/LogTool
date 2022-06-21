@@ -54,13 +54,24 @@ namespace LogTool
             DialogResult result = op.ShowDialog();
             op.Filter = "Text File(*.txt;*.log)|*.txt;*.log"; //拡張子.logと.txt形式のファイルのみ許容する
 
+            // ファイルの読出し
+            string strLine = "";
+            string[] strLineArray = null;
+
             if (result == DialogResult.OK)
             {
                 //「開く」ボタンが選択された時の処理
                 string fileName = op.FileName;  //選択されたファイルのパスが取得できる
                 StreamReader sr = new StreamReader(fileName, System.Text.Encoding.Default);//StreamReaderクラスでファイルの読み込み
-                string str = sr.ReadToEnd();//ファイルを最後まで読み込むメソッド
-                sr.Close();
+                string str = sr.ReadLine();//ファイルを1行ずつ読み込むメソッド
+
+                // ファイルを1行ずつ読む、NULLになったらやめる
+                while ((strLine = sr.ReadLine()) != null)
+                {
+
+                }
+
+                    sr.Close();
             }
             //else if (result == DialogResult.Cancel)
             //{
