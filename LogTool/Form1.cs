@@ -58,6 +58,12 @@ namespace LogTool
             string strLine = "";
             string[] strLineArray = null;
 
+            // 行を取得する
+            int nCnt = 0;
+            string strDate = "";
+            string strType = "";
+            string strLog = "";
+
             if (result == DialogResult.OK)
             {
                 //「開く」ボタンが選択された時の処理
@@ -68,7 +74,17 @@ namespace LogTool
                 // ファイルを1行ずつ読む、NULLになったらやめる
                 while ((strLine = sr.ReadLine()) != null)
                 {
+                    strLineArray = strLine.Split(']');//行を]で分割して配列に格納
 
+                    // ■行を追加
+                    gvLog.Rows.Add();
+                    // ■グリッドビューにレコード追加
+                    gvLog.Rows[gvLog.Rows.Count - 1].Cells[0].Value = strDate;
+                    gvLog.Rows[gvLog.Rows.Count - 1].Cells[1].Value = strType;
+                    gvLog.Rows[gvLog.Rows.Count - 1].Cells[2].Value = strLog;
+
+                    // 行をインクリメント
+                    nCnt++;
                 }
 
                     sr.Close();

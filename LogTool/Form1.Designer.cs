@@ -32,12 +32,19 @@ namespace LogTool
             this.gvLog = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvLog)).BeginInit();
             this.SuspendLayout();
             // 
             // gvLog
             // 
             this.gvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDate,
+            this.colType,
+            this.colLog});
             this.gvLog.Location = new System.Drawing.Point(182, 33);
             this.gvLog.Name = "gvLog";
             this.gvLog.RowHeadersWidth = 62;
@@ -59,6 +66,27 @@ namespace LogTool
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // colDate
+            // 
+            this.colDate.HeaderText = "日付";
+            this.colDate.MinimumWidth = 8;
+            this.colDate.Name = "colDate";
+            this.colDate.Width = 150;
+            // 
+            // colType
+            // 
+            this.colType.HeaderText = "種別";
+            this.colType.MinimumWidth = 8;
+            this.colType.Name = "colType";
+            this.colType.Width = 150;
+            // 
+            // colLog
+            // 
+            this.colLog.HeaderText = "ログ";
+            this.colLog.MinimumWidth = 8;
+            this.colLog.Name = "colLog";
+            this.colLog.Width = 150;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -79,6 +107,9 @@ namespace LogTool
         private System.Windows.Forms.DataGridView gvLog;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLog;
     }
 }
 
